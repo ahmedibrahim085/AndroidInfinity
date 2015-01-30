@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidInfinity.iml" filepath="$PROJECT_DIR$/AndroidInfinity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/AndroidInfinityApp.iml" filepath="$PROJECT_DIR$/app/AndroidInfinityApp.iml" />
+    </modules>
+  </component>
+</project>
+
