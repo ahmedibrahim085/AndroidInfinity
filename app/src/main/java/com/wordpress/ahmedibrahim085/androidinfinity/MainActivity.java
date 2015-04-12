@@ -11,24 +11,20 @@ import com.orhanobut.bee.BeeLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import Backbone.LifecycleCallbacks;
-
 /**
  * Created by AhmedIBRAHIM.
  */
 public class MainActivity extends ActionBarActivity {
-
-    LifecycleCallbacks lifecycleCallbacks;
-
     private final String TAG = "MainActivity";
     private Logger LOG = LoggerFactory.getLogger(MainActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        lifecycleCallbacks = new LifecycleCallbacks();
         // Required call through to Activity.onCreate()
         // Restore any saved instance state
         super.onCreate(savedInstanceState);
+        // Start Bee Debug and QA tool for android
+//        Bee.inject(this, Bee.class);
 
         // Set content view
         setContentView(R.layout.android_infinity_main_activity);
@@ -37,7 +33,7 @@ public class MainActivity extends ActionBarActivity {
 
         // Initialize Bee Log
         BeeLog.d(TAG, "Application Started - Bee");
-        Log.d(TAG,"Application Started - Log");
+        Log.d(TAG, "Application Started - Log");
         LOG.debug("Application Started - SLF4j");
     }
 
@@ -82,6 +78,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         LOG.info("The activity is and has focus (it is now \"resumed\")");
+        LOG.info("Application Started - SLF4j");
         BeeLog.d(TAG, "Application Started & UI is Shown");
     }
 

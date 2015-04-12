@@ -2,20 +2,50 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wordpress.ahmedibrahim085.androidinfinity">
 
+    <!-- The device finish Booting , 2nd is for HTC devices -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.QUICKBOOT_POWERON" />
+    <uses-permission android:name="android.permission.reboot" />
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/app_AppName"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AndroidInfinity_MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Get Boot/Re-Boot Action -->
+        <receiver
+            android:name="broadcastReceiver.BootAction"
+            android:enabled="true"
+            android:exported="false"
+            android:label="@string/boot"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+        <!--Get Shutdown/Restart Action-->
+        <receiver
+            android:name="broadcastReceiver.ShutdownAction"
+            android:enabled="true"
+            android:exported="false"
+            android:label="@string/shutdown"
+            android:permission="android.permission.DEVICE_POWER"></receiver>
+        <intent-filter>
+            <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            <action android:name="android.intent.action.QUICKBOOT_POWEROFF" />
+        </intent-filter>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package Backbone;
+package backBone;
 
 import android.content.ComponentCallbacks2;
 import android.content.res.Configuration;

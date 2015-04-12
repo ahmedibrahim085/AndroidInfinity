@@ -2,7 +2,20 @@
 <resources>
 
     <string name="app_name">Android Infinity</string>
+    <string name="app_AppName">Android Infinity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <!--Broadcast Receivers-->
+    <string name="boot">Android Infinity Boot Broadcast</string>
+    <string name="shutdown">Android Infinity Shutdown Broadcast</string>
+    <!--Actions-->
+    <!--Boot Actions-->
+    <string name="boot_action1">android.intent.action.ACTION_BOOT_COMPLETED</string>
+    <string name="boot_action2">android.intent.action.BOOT_COMPLETED</string>
+    <string name="boot_action3">android.intent.action.QUICKBOOT_POWERON</string>
+    <!--Shutdown Action-->
+    <string name="shutdown_action1">android.intent.action.ACTION_SHUTDOWN</string>
+    <string name="shutdown_action2">android.intent.action.QUICKBOOT_POWEROFF</string>
+
 
 </resources>

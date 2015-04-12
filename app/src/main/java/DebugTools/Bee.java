@@ -1,4 +1,4 @@
-package DebugTools;
+package debugTools;
 
 import android.util.Log;
 
@@ -11,7 +11,7 @@ import com.orhanobut.bee.widgets.Title;
 import java.util.Map;
 
 /**
- * Created by TempSys on 11/04/15.
+ * Created by AhmedIBRAHIM on 11/04/15.
  */
 public class Bee extends BeeConfig {
 

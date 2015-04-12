@@ -28,6 +28,7 @@ public class BootAction extends BroadcastReceiver {
         String action1 = context.getString(R.string.boot_action1);
         String action2 = context.getString(R.string.boot_action2);
         String action3 = context.getString(R.string.boot_action3);
+        Log.d(TAG, "BOOT Action Received : " + intentAction);
         if (intentAction.equals(action1)
                 || intentAction.equals(action2)
                 || intentAction.equals(action3)){
@@ -35,6 +36,7 @@ public class BootAction extends BroadcastReceiver {
             Log.d(TAG, "BOOT Action Received : " + Calendar.getInstance().getTime());
             LOG.info("BOOT Action Received : " + SystemClock.uptimeMillis());
             LOG.info("BOOT Action Received : " + Calendar.getInstance().getTime());
+            // Implement your Logic here
         }
     }
 }
