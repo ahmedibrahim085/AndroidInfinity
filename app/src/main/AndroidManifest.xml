@@ -12,7 +12,7 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic__android_infinity_launcher"
         android:label="@string/app_AppName"
         android:theme="@style/AppTheme">
         <activity
