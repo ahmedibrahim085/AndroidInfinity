@@ -6,35 +6,24 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.orhanobut.bee.BeeLog;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * Created by AhmedIBRAHIM.
  */
 public class MainActivity extends ActionBarActivity {
     private final String TAG = "MainActivity";
-    private Logger LOG = LoggerFactory.getLogger(MainActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Required call through to Activity.onCreate()
         // Restore any saved instance state
         super.onCreate(savedInstanceState);
-        // Start Bee Debug and QA tool for android
-//        Bee.inject(this, Bee.class);
 
         // Set content view
         setContentView(R.layout.android_infinity_main_activity);
 
         // Initialize UI elements
 
-        // Initialize Bee Log
-        BeeLog.d(TAG, "Application Started - Bee");
-        Log.d(TAG, "Application Started - Log");
-        LOG.debug("Application Started - SLF4j");
+        Log.i(TAG, "MainActivity onCreate()");
     }
 
 
@@ -64,40 +53,38 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        LOG.info("The activity is visible and about to be started.");
+        Log.i(TAG, "The activity is visible and about to be started.");
     }
 
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        LOG.info("The activity is visible and about to be restarted.");
+        Log.i(TAG, "The activity is visible and about to be restarted.");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        LOG.info("The activity is and has focus (it is now \"resumed\")");
-        LOG.info("Application Started - SLF4j");
-        BeeLog.d(TAG, "Application Started & UI is Shown");
+        Log.i(TAG, "The activity is and has focus (it is now \"resumed\")");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        LOG.info("Another activity is taking focus (this activity is about to be \"paused\")");
+        Log.i(TAG, "Another activity is taking focus (this activity is about to be \"paused\")");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        LOG.info("The activity is no longer visible (it is now \"stopped\")");
+        Log.i(TAG, "The activity is no longer visible (it is now \"stopped\")");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LOG.info("The activity is about to be destroyed.");
+        Log.i(TAG, "The activity is about to be destroyed.");
     }
 
 }

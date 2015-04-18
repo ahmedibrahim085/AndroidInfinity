@@ -6,10 +6,8 @@ import android.content.Intent;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.wordpress.ahmedibrahim085.androidinfinity.App;
 import com.wordpress.ahmedibrahim085.androidinfinity.R;
-
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
 
 import java.util.Calendar;
 
@@ -19,7 +17,6 @@ public class BootAction extends BroadcastReceiver {
         // broadcastReceiver BootAction Empty Constructor
     }
 
-    private static Logger LOG = LoggerFactory.getLogger(BootAction.class);
     private String TAG = "BootAction";
 
     @Override
@@ -34,9 +31,8 @@ public class BootAction extends BroadcastReceiver {
                 || intentAction.equals(action3)){
             Log.d(TAG, "BOOT Action Received : " + SystemClock.uptimeMillis());
             Log.d(TAG, "BOOT Action Received : " + Calendar.getInstance().getTime());
-            LOG.info("BOOT Action Received : " + SystemClock.uptimeMillis());
-            LOG.info("BOOT Action Received : " + Calendar.getInstance().getTime());
-            // Implement your Logic here
+            // Start you Application here
+            App.pushAppToForeground(); // Comment this line if you want to try the approach
         }
     }
 }

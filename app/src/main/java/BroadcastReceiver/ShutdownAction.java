@@ -14,6 +14,7 @@ public class ShutdownAction extends BroadcastReceiver {
     }
 
     private String TAG = "ShutdownAction";
+    private boolean shutdown = false;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -26,6 +27,8 @@ public class ShutdownAction extends BroadcastReceiver {
                 || intentAction.equals(action2)){
             Log.d(TAG, "Shutdown Action Received : " + Calendar.getInstance().getTime());
             // Implement your Logic here & be as quick as possible.
+            // Here you should save a boolean to your application Shared-preferences
+            shutdown = true;
         }
     }
 }

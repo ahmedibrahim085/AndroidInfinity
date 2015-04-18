@@ -3,7 +3,7 @@
 
     <string name="app_name">Android Infinity</string>
     <string name="app_AppName">Android Infinity</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_Android_Infinity">Hello Android Infinity\n(Boot without permission example)</string>
     <string name="action_settings">Settings</string>
     <!--Broadcast Receivers-->
     <string name="boot">Android Infinity Boot Broadcast</string>
