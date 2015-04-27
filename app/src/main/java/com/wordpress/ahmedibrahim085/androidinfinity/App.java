@@ -28,14 +28,14 @@ public class App extends Application {
     public void onCreate() {
         AppContext = getApplicationContext();
         super.onCreate();
-        Log.d(TAG, "androidInfinity Application Class Started, Device booted Since : " + SystemClock.uptimeMillis() + "Milliseconds");
+        Log.d(TAG, "androidInfinity Application Class Started, Device booted Since : " + SystemClock.elapsedRealtime() + "Milliseconds");
         Log.d(TAG, "androidInfinity Application Class Started : " + Calendar.getInstance().getTime());
 
         registerThisAppReceivers();
 
         // I assumed that you are using an old slow device like mine (I received it after 90seconds)
         // 120000 Milliseconds = 120 Seconds = 2 Minutes
-        if (SystemClock.uptimeMillis()<=120000){
+        if (SystemClock.elapsedRealtime()<=120000){
             Log.d(TAG, "The application is starting after a Boot action");
         }else{
             Log.d(TAG, "The application is starting after a Force-Stop action");

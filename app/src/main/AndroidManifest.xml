@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wordpress.ahmedibrahim085.androidinfinity">
+    package="com.wordpress.ahmedibrahim085.androidinfinity" >
 
-    <!--    This permission is for demonstration purpose only if you want to try the approach
-    i.e trying it without any permission, comment it and the BootBroadcast related lines.-->
+    <!--
+    This permission is for demonstration purpose only if you want to try the approach
+    i.e trying it without any permission, comment it and the BootBroadcast related lines.
+    -->
+
 
     <!-- The device finish Booting , 2nd is the same thing but for HTC devices -->
-        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-        <uses-permission android:name="android.permission.QUICKBOOT_POWERON" />
+    <!--<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />-->
+    <!--<uses-permission android:name="android.permission.QUICKBOOT_POWERON" />-->
+
+    <!-- Network state -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/ic__android_infinity_launcher"
         android:label="@string/app_AppName"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- Get Boot/Re-Boot Action  (Comment the receiver lines if you want to apply the approach)-->
+        <!-- Get Boot/Re-Boot Action  (Comment the receiver lines if you want to apply the approach) -->
         <receiver
             android:name="broadcastReceiver.BootAction"
             android:enabled="true"
             android:exported="false"
             android:label="@string/boot"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -38,17 +48,28 @@
             </intent-filter>
         </receiver>
 
-        <!--Get Shutdown/Restart Action-->
+        <!-- Get Shutdown/Restart Action -->
         <!-- The device is shutting , 2nd is the same thing but for HTC devices -->
         <receiver
             android:name="broadcastReceiver.ShutdownAction"
             android:enabled="true"
             android:exported="false"
             android:label="@string/shutdown"
-            android:permission="android.permission.DEVICE_POWER">
+            android:permission="android.permission.DEVICE_POWER" >
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_SHUTDOWN" />
                 <action android:name="android.intent.action.QUICKBOOT_POWEROFF" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Get Network (WIfi & 3G) Change connection Actions -->
+        <receiver
+            android:name="broadcastReceiver.NetworkState"
+            android:enabled="true"
+            android:label=".NetworkStateMonitor"
+            android:permission="android.permission.ACCESS_NETWORK_STATE" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
     </application>

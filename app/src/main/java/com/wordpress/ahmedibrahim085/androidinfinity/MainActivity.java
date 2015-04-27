@@ -11,7 +11,7 @@ import android.view.MenuItem;
  */
 public class MainActivity extends ActionBarActivity {
     private final String TAG = "MainActivity";
-
+    public static boolean androidInfinityStarted = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Required call through to Activity.onCreate()
@@ -66,6 +66,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        androidInfinityStarted = true;
         Log.i(TAG, "The activity is and has focus (it is now \"resumed\")");
     }
 
@@ -78,12 +79,14 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        androidInfinityStarted = false;
         Log.i(TAG, "The activity is no longer visible (it is now \"stopped\")");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        androidInfinityStarted = false;
         Log.i(TAG, "The activity is about to be destroyed.");
     }
 

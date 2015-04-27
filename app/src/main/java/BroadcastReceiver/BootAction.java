@@ -29,7 +29,7 @@ public class BootAction extends BroadcastReceiver {
         if (intentAction.equals(action1)
                 || intentAction.equals(action2)
                 || intentAction.equals(action3)){
-            Log.d(TAG, "BOOT Action Received : " + SystemClock.uptimeMillis());
+            Log.d(TAG, "BOOT Action Received : " + SystemClock.elapsedRealtime());
             Log.d(TAG, "BOOT Action Received : " + Calendar.getInstance().getTime());
             // Start you Application here
             App.pushAppToForeground(); // Comment this line if you want to try the approach
