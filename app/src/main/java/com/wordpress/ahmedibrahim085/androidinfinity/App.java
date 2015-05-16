@@ -8,6 +8,8 @@ import android.content.IntentFilter;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.facebook.stetho.Stetho;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,8 +40,13 @@ public class App extends Application {
         LOG.info("androidInfinity Application Class Started : " + Calendar.getInstance().getTime());
         Log.d(TAG, "androidInfinity Application Class Created -LogUtil");
 
-
         registerThisAppReceivers();
+
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                        .build());
     }
 
     public Context getThisAppContext() {
